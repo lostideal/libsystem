@@ -1,0 +1,46 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+     http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	 http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+	 http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+	<!-- in-memory database and a datasource -->
+<!--  
+	<jdbc:embedded-database id="dataSource">
+		<jdbc:script location="classpath:database/hsqldb-schema.sql" />
+		<jdbc:script location="classpath:database/hsqldb-dataload.sql" />
+	</jdbc:embedded-database>
+ -->	
+	<!-- switch to real database -->
+<!-- 
+ 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> 
+          <property name="driverClassName" value="${db.driverClassName}"/> 
+          <property name="url" value="${db.url}"/> 
+          <property name="username" value="${db.user}"/> 
+          <property name="password" value="${db.pwd}"/> 
+	</bean> 
+ -->
+
+ 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> 
+          <property name="driverClassName" value="com.mysql.jdbc.Driver"/> 
+          <property name="url" value="jdbc:mysql://172.16.19.122:3306/libsystem?useUnicode=true&amp;characterEncoding=utf8"/> 
+          <property name="username" value="root"/> 
+          <property name="password" value="123"/> 
+	</bean> 
+
+	<!-- NOTE: for JPA -->
+	<import resource="classpath:sc-db-jpa.spring.xml"/>
+	<!-- NOTE: for MyBatis -->
+	<import resource="classpath:sc-db-mybatis.spring.xml"/>
+	
+</beans>
