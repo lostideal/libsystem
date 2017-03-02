@@ -35,6 +35,7 @@ public final class EnumHelper implements Serializable {
      * @return a list of objects of type T
      */
     public static <T extends Enum<T>> List<T> inspectConstants(final Class<T> clazz) {
+        LOGGER.info("EnumHelper.inspectConstants");
         return new ArrayList<T>(Arrays.asList(clazz.getEnumConstants()));
     }
 
@@ -48,6 +49,7 @@ public final class EnumHelper implements Serializable {
      * @return a list of objects of type T
      */
     public static <T extends Enum<T>> List<T> inspectConstants(final Class<T> clazz, boolean containsNull) {
+        LOGGER.info("EnumHelper.inspectConstants");
         List<T> list = new ArrayList<T>(Arrays.asList(clazz.getEnumConstants()));
         if (!containsNull) {
             list.remove(0);
@@ -79,6 +81,7 @@ public final class EnumHelper implements Serializable {
      * @return an instance of type T, or null if the code is not defined
      */
     public static <T extends Enum<T>> T translate(final Class<T> clazz, final String code) {
+        LOGGER.info("EnumHelper.translate");
         if (code == null) {
             return null;
         }
@@ -106,6 +109,7 @@ public final class EnumHelper implements Serializable {
      * @return code
      */
     public static <T extends Enum<T>> String getCode(final T obj) {
+        LOGGER.info("EnumHelper.getCode");
         if (obj == null) {
             return null;
         }
@@ -128,6 +132,7 @@ public final class EnumHelper implements Serializable {
      * @return
      */
     public static <T extends Enum<T>> T translateByLabel(final Class<T> clazz, final String label) {
+        LOGGER.info("EnumHelper.translateByLabel");
         if (label == null) {
             return null;
         }

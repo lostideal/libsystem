@@ -3,6 +3,8 @@ package cn.powerdash.libsystem.book.controller;
 import javax.validation.groups.Default;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +33,9 @@ import cn.powerdash.libsystem.common.util.web.WebUtil;
 
 @Controller
 public class BookController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
+
     @Autowired
     private transient BookService bookService;
 
@@ -42,6 +47,7 @@ public class BookController {
      */
     @RequestMapping(value = "/books", method = RequestMethod.GET)
     public String home(Model model) {
+        LOGGER.info("BookController.home");
         model.addAttribute("categoryList", EnumHelper.inspectConstants(EBookCagetory.class));
         return "book/book_list";
     }
@@ -55,6 +61,7 @@ public class BookController {
     @RequestMapping(value = "/books", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<DataTablesResponseDto<Bookinfo>> search(@RequestBody BookSearchDto request) {
+        LOGGER.info("BookController.search");
         DataTablesResponseDto<Bookinfo> resp = bookService.searchBook(request);
         resp.setEcho(request.getEcho());
         return ResultDtoFactory.toAck(StringUtils.EMPTY, resp);
@@ -68,6 +75,7 @@ public class BookController {
      */
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     public String getAddPage(Model model) {
+        LOGGER.info("BookController.getAddPage");
         model.addAttribute("categoryList", EnumHelper.inspectConstants(EBookCagetory.class));
         return "book/book_add";
     }
@@ -82,6 +90,7 @@ public class BookController {
     @ResponseBody
     public ResultDto<String> add(
             @RequestBody @OnValid(value = { CreateBookInfo.class, Default.class }) BookInfoDto dto) {
+        LOGGER.info("BookController.add");
         Bookinfo entity = ConverterService.convert(dto, Bookinfo.class);
         bookService.saveBook(entity);
         return ResultDtoFactory.toRedirect(WebUtil.getFullUrlBasedOn(ApplicationConstant.GLOBAL_CONTEXT + "/books"));
@@ -96,6 +105,7 @@ public class BookController {
      */
     @RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
     public String detail(@PathVariable(value = "id") String id, Model model) {
+        LOGGER.info("BookController.detail");
         Bookinfo detail = bookService.findBookById(id);
         if (detail == null) {
             throw new BizServiceException(EErrorCode.PRODUCT_NOT_FOUND);
@@ -115,6 +125,7 @@ public class BookController {
     @RequestMapping(value = "/book/{id}", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<String> update(@PathVariable(value = "id") String id, @RequestBody @OnValid BookInfoDto dto) {
+        LOGGER.info("BookController.update");
         Bookinfo entity = ConverterService.convert(dto, Bookinfo.class);
         entity.setId(Integer.getInteger(id));
         bookService.saveBook(entity);
@@ -130,6 +141,7 @@ public class BookController {
     @RequestMapping(value = "/book/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ResultDto<String> delete(@PathVariable("id") String id) {
+        LOGGER.info("BookController.delete");
         bookService.deleteBook(id);
         return ResultDtoFactory.toAck("successfully deleted!");
     }
