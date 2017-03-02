@@ -1,11 +1,13 @@
 package cn.powerdash.libsystem.book.domain;
 // Generated 2017-3-2 0:17:49 by Hibernate Tools 3.5.0.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,69 +20,73 @@ import javax.persistence.TemporalType;
 @Table(name = "storagehistory", catalog = "libsystem")
 public class Storagehistory implements java.io.Serializable {
 
-	private Integer id;
-	private int bookid;
-	private int dealType;
-	private Date dealDate;
-	private int dealUser;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    private Integer id;
+    private int bookid;
+    private int dealType;
+    private Date dealDate;
+    private int dealUser;
 
-	public Storagehistory() {
-	}
+    public Storagehistory() {
+    }
 
-	public Storagehistory(int bookid, int dealType, Date dealDate, int dealUser) {
-		this.bookid = bookid;
-		this.dealType = dealType;
-		this.dealDate = dealDate;
-		this.dealUser = dealUser;
-	}
+    public Storagehistory(int bookid, int dealType, Date dealDate, int dealUser) {
+        this.bookid = bookid;
+        this.dealType = dealType;
+        this.dealDate = dealDate;
+        this.dealUser = dealUser;
+    }
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
-	}
+    @Column(name = "id", unique = true, nullable = false)
+    public Integer getId() {
+        return this.id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	@Column(name = "bookid", nullable = false)
-	public int getBookid() {
-		return this.bookid;
-	}
+    @Column(name = "bookid", nullable = false)
+    public int getBookid() {
+        return this.bookid;
+    }
 
-	public void setBookid(int bookid) {
-		this.bookid = bookid;
-	}
+    public void setBookid(int bookid) {
+        this.bookid = bookid;
+    }
 
-	@Column(name = "deal_type", nullable = false)
-	public int getDealType() {
-		return this.dealType;
-	}
+    @Column(name = "deal_type", nullable = false)
+    public int getDealType() {
+        return this.dealType;
+    }
 
-	public void setDealType(int dealType) {
-		this.dealType = dealType;
-	}
+    public void setDealType(int dealType) {
+        this.dealType = dealType;
+    }
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "deal_date", nullable = false, length = 10)
-	public Date getDealDate() {
-		return this.dealDate;
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "deal_date", nullable = false, length = 10)
+    public Date getDealDate() {
+        return this.dealDate;
+    }
 
-	public void setDealDate(Date dealDate) {
-		this.dealDate = dealDate;
-	}
+    public void setDealDate(Date dealDate) {
+        this.dealDate = dealDate;
+    }
 
-	@Column(name = "deal_user", nullable = false)
-	public int getDealUser() {
-		return this.dealUser;
-	}
+    @Column(name = "deal_user", nullable = false)
+    public int getDealUser() {
+        return this.dealUser;
+    }
 
-	public void setDealUser(int dealUser) {
-		this.dealUser = dealUser;
-	}
+    public void setDealUser(int dealUser) {
+        this.dealUser = dealUser;
+    }
 
 }
