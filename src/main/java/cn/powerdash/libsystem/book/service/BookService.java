@@ -10,7 +10,7 @@ public interface BookService {
 
     void saveBook(Bookinfo entity);
 
-    Bookinfo findBookById(String id);
+    Bookinfo findBookByIsbn13(String isbn13);
 
     void deleteBook(String id);
 

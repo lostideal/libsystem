@@ -103,10 +103,10 @@ public class BookController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
-    public String detail(@PathVariable(value = "id") String id, Model model) {
+    @RequestMapping(value = "/book/{isbn13}", method = RequestMethod.GET)
+    public String detail(@PathVariable(value = "isbn13") String isbn13, Model model) {
         LOGGER.info("BookController.detail");
-        Bookinfo detail = bookService.findBookById(id);
+        Bookinfo detail = bookService.findBookByIsbn13(isbn13);
         if (detail == null) {
             throw new BizServiceException(EErrorCode.PRODUCT_NOT_FOUND);
         }
