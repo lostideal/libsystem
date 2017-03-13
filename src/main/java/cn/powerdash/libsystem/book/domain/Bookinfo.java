@@ -30,21 +30,21 @@ public class Bookinfo implements java.io.Serializable {
     private String barcode;
     private String name;
     private String publish;
-    private Date publishDate;
+    private String publishDate;
     private String author;
     private String translator;
     private String classify;
     private String contentIntro;
     private String authorIntro;
     private double price;
-    private int bindingType;
+    private String bindingType;
 
     public Bookinfo() {
     }
 
-    public Bookinfo(String isbn13, String isbn10, String barcode, String name, String publish, Date publishDate,
+    public Bookinfo(String isbn13, String isbn10, String barcode, String name, String publish, String publishDate,
             String author, String translator, String classify, String contentIntro, String authorIntro, double price,
-            int bindingType) {
+            String bindingType) {
         this.isbn13 = isbn13;
         this.isbn10 = isbn10;
         this.barcode = barcode;
@@ -119,12 +119,12 @@ public class Bookinfo implements java.io.Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "publish_date", nullable = false, length = 10)
-    public Date getPublishDate() {
+    public String getPublishDate() {
         return this.publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
+    public void setPublishDate(String string) {
+        this.publishDate = string;
     }
 
     @Column(name = "author", nullable = false, length = 50)
@@ -182,11 +182,11 @@ public class Bookinfo implements java.io.Serializable {
     }
 
     @Column(name = "binding_type", nullable = false)
-    public int getBindingType() {
+    public String getBindingType() {
         return this.bindingType;
     }
 
-    public void setBindingType(int bindingType) {
+    public void setBindingType(String bindingType) {
         this.bindingType = bindingType;
     }
 
