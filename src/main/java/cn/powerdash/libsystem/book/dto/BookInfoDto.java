@@ -16,7 +16,7 @@ public class BookInfoDto implements Serializable {
     private String barcode;
     private String name;
     private String publish;
-    private Date publishDate;
+    private String publishDate;
     private String author;
     private String translator;
     private String classify;
@@ -73,11 +73,11 @@ public class BookInfoDto implements Serializable {
         this.publish = publish;
     }
 
-    public Date getPublishDate() {
+    public String getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
+    public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
     }
 

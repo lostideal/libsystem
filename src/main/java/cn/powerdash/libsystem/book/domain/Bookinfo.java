@@ -3,7 +3,7 @@ package cn.powerdash.libsystem.book.domain;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
