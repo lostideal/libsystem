@@ -8,7 +8,7 @@ public interface BookService {
 
     DataTablesResponseDto<Bookinfo> searchBook(BookSearchDto request);
 
-    void saveBook(Bookinfo entity);
+    Bookinfo saveBook(Bookinfo entity);
 
     Bookinfo findBookByIsbn13(String isbn13);
 
