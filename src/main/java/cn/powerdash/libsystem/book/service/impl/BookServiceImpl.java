@@ -93,7 +93,9 @@ public class BookServiceImpl implements BookService {
         bi.setIsbn13(node.path("isbn13").asText());
         bi.setName(node.path("title").asText());
         String price = node.path("price").asText();
-        price = price.substring(0, price.length() - 1);
+        if("元".equals(price.substring(price.length()-1, price.length()))){
+        	price = price.substring(0, price.length() - 1);
+        }
         bi.setPrice(Double.valueOf(price));
         bi.setPublish(node.path("publisher").asText());
         bi.setPublishDate(node.path("pubdate").asText());
