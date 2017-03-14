@@ -112,7 +112,7 @@ public class BookController {
         }
         model.addAttribute("detail", detail);
         model.addAttribute("categoryList", EnumHelper.inspectConstants(EBookCagetory.class));
-        return "book/book_edit";
+        return "book/book_detail";
     }
 
     /**
