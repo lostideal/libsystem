@@ -14,8 +14,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import cn.powerdash.libsystem.book.domain.Bookinfo;
+import cn.powerdash.libsystem.book.domain.Bookstorage;
 import cn.powerdash.libsystem.book.dto.BookSearchDto;
 import cn.powerdash.libsystem.book.repository.BookRepository;
+import cn.powerdash.libsystem.book.repository.BookstorageRepository;
+
 import cn.powerdash.libsystem.book.service.BookService;
 import cn.powerdash.libsystem.common.dto.widget.DataTablesResponseDto;
 import cn.powerdash.libsystem.common.util.EnumHelper;
@@ -30,6 +33,9 @@ public class BookServiceImpl implements BookService {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    BookstorageRepository bookstorageRepository;
+    
     @Override
     public DataTablesResponseDto<Bookinfo> searchBook(BookSearchDto request) {
         // TODO Auto-generated method stub
@@ -42,7 +48,19 @@ public class BookServiceImpl implements BookService {
         return bookRepository.save(newBook);
 
     }
-
+	@Override
+	public Bookstorage addBook(Bookstorage entity) {
+		// TODO Auto-generated method stub
+		return bookstorageRepository.save(entity);
+		
+	}
+	
+	@Override
+	public Bookstorage updateBook(Bookstorage entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
     @Override
     public Bookinfo findBookByIsbn13(String isbn13) {
         Bookinfo bookinfo = bookRepository.findBookByIsbn(isbn13);
@@ -149,5 +167,9 @@ public class BookServiceImpl implements BookService {
 
         return str;
     }
+
+
+
+
 
 }

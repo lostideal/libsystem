@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.powerdash.libsystem.book.domain.Bookinfo;
+import cn.powerdash.libsystem.book.domain.Bookstorage;
 import cn.powerdash.libsystem.book.dto.BookInfoDto;
 import cn.powerdash.libsystem.book.dto.BookInfoDto.CreateBookInfo;
 import cn.powerdash.libsystem.book.dto.BookSearchDto;
+import cn.powerdash.libsystem.book.dto.BookstoraegeDto;
 import cn.powerdash.libsystem.book.enums.EBookCagetory;
 import cn.powerdash.libsystem.book.service.BookService;
 import cn.powerdash.libsystem.common.constant.ApplicationConstant;
@@ -86,13 +88,13 @@ public class BookController {
      * @param dto
      * @return
      */
-    @RequestMapping(value = "/book", method = RequestMethod.PUT)
+    @RequestMapping(value = "/book", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<String> add(
-            @RequestBody @OnValid(value = { CreateBookInfo.class, Default.class }) BookInfoDto dto) {
+            @RequestBody @OnValid(value = { CreateBookInfo.class, Default.class }) BookstoraegeDto dto) {
         LOGGER.info("BookController.add");
-        Bookinfo entity = ConverterService.convert(dto, Bookinfo.class);
-        bookService.saveBook(entity);
+        Bookstorage entity = ConverterService.convert(dto, Bookstorage.class);
+        bookService.addBook(entity);
         return ResultDtoFactory.toRedirect(WebUtil.getFullUrlBasedOn(ApplicationConstant.GLOBAL_CONTEXT + "/books"));
     }
 
@@ -124,11 +126,11 @@ public class BookController {
      */
     @RequestMapping(value = "/book/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public ResultDto<String> update(@PathVariable(value = "id") String id, @RequestBody @OnValid BookInfoDto dto) {
+    public ResultDto<String> update(@PathVariable(value = "id") String id, @RequestBody @OnValid BookstoraegeDto dto) {
         LOGGER.info("BookController.update");
-        Bookinfo entity = ConverterService.convert(dto, Bookinfo.class);
+        Bookstorage entity = ConverterService.convert(dto, Bookstorage.class);
         entity.setId(Integer.getInteger(id));
-        bookService.saveBook(entity);
+        bookService.updateBook(entity);
         return ResultDtoFactory.toAck("successfully updated!");
     }
 

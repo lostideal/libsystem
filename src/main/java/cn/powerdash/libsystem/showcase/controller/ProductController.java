@@ -104,7 +104,7 @@ public class ProductController extends AbstractController {
      * @param dto
      * @return
      */
-    @RequestMapping(value = "/product", method = RequestMethod.PUT)
+    @RequestMapping(value = "/product", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<String> add(@RequestBody @OnValid(value = { CreateProduct.class, Default.class }) ProductDto dto) {
         Product entity = ConverterService.convert(dto, Product.class);

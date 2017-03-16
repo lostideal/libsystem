@@ -16,7 +16,9 @@
 					</div>
 						  
 
-					
+					<div>
+                       <a href="$link.contextPath/web/book" class="btn btn-info"><i class="fa fa-plus"></i>Add</a>
+                   </div>
 
 					
 					<div class="form-btn-wrapper has-feedback">

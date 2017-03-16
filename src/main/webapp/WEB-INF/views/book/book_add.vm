@@ -1,4 +1,4 @@
-<script src="$link.contextPath/assets/js/page/product/product_add.js" type="text/javascript"></script>
+<script src="$link.contextPath/assets/js/page/book/book_add.js" type="text/javascript"></script>
 <div class="row pd">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="main-wrapper">
@@ -6,7 +6,7 @@
 	  			<form id="product-form" role="form" method="POST" action="$link.contextPath/web/product">
 	  				<label class="control-label col-md-3" for="id">ID</label>
 	  				<div class="input-group col-md-9 form-item has-feedback">
-	  					<input type="text" class="form-control" id="id" name="id" required placeholder="ID"/>
+	  					<input type="text" class="form-control" id="name" name="name" value="$!detail.name" required placeholder="Name"/>
 	  				</div>
 						
 					<label class="control-label col-md-3" for="name">Name</label>
