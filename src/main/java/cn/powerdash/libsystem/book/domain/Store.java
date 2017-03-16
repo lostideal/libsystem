@@ -1,11 +1,10 @@
 package cn.powerdash.libsystem.book.domain;
-// Generated 2017-3-2 0:17:49 by Hibernate Tools 3.5.0.Final
-
-import static javax.persistence.GenerationType.IDENTITY;
+// Generated 2017-3-16 22:45:37 by Hibernate Tools 3.5.0.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,83 +15,79 @@ import javax.persistence.Table;
 @Table(name = "store", catalog = "libsystem")
 public class Store implements java.io.Serializable {
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
-    private Integer id;
-    private int storeName;
-    private String storeAddress;
-    private String storePhone;
-    private int storeOwner;
-    private String storePrefix;
+	private Integer id;
+	private String storeName;
+	private String storeAddress;
+	private String storePhone;
+	private int storeOwner;
+	private String storePrefix;
 
-    public Store() {
-    }
+	public Store() {
+	}
 
-    public Store(int storeName, String storeAddress, String storePhone, int storeOwner, String storePrefix) {
-        this.storeName = storeName;
-        this.storeAddress = storeAddress;
-        this.storePhone = storePhone;
-        this.storeOwner = storeOwner;
-        this.storePrefix = storePrefix;
-    }
+	public Store(String storeName, String storeAddress, String storePhone, int storeOwner, String storePrefix) {
+		this.storeName = storeName;
+		this.storeAddress = storeAddress;
+		this.storePhone = storePhone;
+		this.storeOwner = storeOwner;
+		this.storePrefix = storePrefix;
+	}
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
-    @Column(name = "id", unique = true, nullable = false)
-    public Integer getId() {
-        return this.id;
-    }
+	@Column(name = "id", unique = true, nullable = false)
+	public Integer getId() {
+		return this.id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    @Column(name = "store_name", nullable = false)
-    public int getStoreName() {
-        return this.storeName;
-    }
+	@Column(name = "store_name", nullable = false, length = 50)
+	public String getStoreName() {
+		return this.storeName;
+	}
 
-    public void setStoreName(int storeName) {
-        this.storeName = storeName;
-    }
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
 
-    @Column(name = "store_address", nullable = false, length = 20)
-    public String getStoreAddress() {
-        return this.storeAddress;
-    }
+	@Column(name = "store_address", nullable = false, length = 50)
+	public String getStoreAddress() {
+		return this.storeAddress;
+	}
 
-    public void setStoreAddress(String storeAddress) {
-        this.storeAddress = storeAddress;
-    }
+	public void setStoreAddress(String storeAddress) {
+		this.storeAddress = storeAddress;
+	}
 
-    @Column(name = "store_phone", nullable = false, length = 15)
-    public String getStorePhone() {
-        return this.storePhone;
-    }
+	@Column(name = "store_phone", nullable = false, length = 15)
+	public String getStorePhone() {
+		return this.storePhone;
+	}
 
-    public void setStorePhone(String storePhone) {
-        this.storePhone = storePhone;
-    }
+	public void setStorePhone(String storePhone) {
+		this.storePhone = storePhone;
+	}
 
-    @Column(name = "store_owner", nullable = false)
-    public int getStoreOwner() {
-        return this.storeOwner;
-    }
+	@Column(name = "store_owner", nullable = false)
+	public int getStoreOwner() {
+		return this.storeOwner;
+	}
 
-    public void setStoreOwner(int storeOwner) {
-        this.storeOwner = storeOwner;
-    }
+	public void setStoreOwner(int storeOwner) {
+		this.storeOwner = storeOwner;
+	}
 
-    @Column(name = "store_prefix", nullable = false, length = 7)
-    public String getStorePrefix() {
-        return this.storePrefix;
-    }
+	@Column(name = "store_prefix", nullable = false, length = 7)
+	public String getStorePrefix() {
+		return this.storePrefix;
+	}
 
-    public void setStorePrefix(String storePrefix) {
-        this.storePrefix = storePrefix;
-    }
+	public void setStorePrefix(String storePrefix) {
+		this.storePrefix = storePrefix;
+	}
 
 }

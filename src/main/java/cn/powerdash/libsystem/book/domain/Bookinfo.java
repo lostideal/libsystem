@@ -1,11 +1,10 @@
 package cn.powerdash.libsystem.book.domain;
-// Generated 2017-3-2 0:17:49 by Hibernate Tools 3.5.0.Final
-
-import static javax.persistence.GenerationType.IDENTITY;
+// Generated 2017-3-16 22:45:37 by Hibernate Tools 3.5.0.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,174 +15,169 @@ import javax.persistence.Table;
 @Table(name = "bookinfo", catalog = "libsystem")
 public class Bookinfo implements java.io.Serializable {
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
-    private Integer id;
-    private String isbn13;
-    private String isbn10;
-    private String barcode;
-    private String name;
-    private String publish;
-    private String publishDate;
-    private String author;
-    private String translator;
-    private String classify;
-    private String contentIntro;
-    private String authorIntro;
-    private double price;
-    private String bindingType;
+	private Integer id;
+	private String isbn13;
+	private String isbn10;
+	private String barcode;
+	private String name;
+	private String publish;
+	private String publishDate;
+	private String author;
+	private String translator;
+	private String classify;
+	private String contentIntro;
+	private String authorIntro;
+	private double price;
+	private String bindingType;
 
-    public Bookinfo() {
-    }
+	public Bookinfo() {
+	}
 
-    public Bookinfo(String isbn13, String isbn10, String barcode, String name, String publish, String publishDate,
-            String author, String translator, String classify, String contentIntro, String authorIntro, double price,
-            String bindingType) {
-        this.isbn13 = isbn13;
-        this.isbn10 = isbn10;
-        this.barcode = barcode;
-        this.name = name;
-        this.publish = publish;
-        this.publishDate = publishDate;
-        this.author = author;
-        this.translator = translator;
-        this.classify = classify;
-        this.contentIntro = contentIntro;
-        this.authorIntro = authorIntro;
-        this.price = price;
-        this.bindingType = bindingType;
-    }
+	public Bookinfo(String isbn13, String isbn10, String barcode, String name, String publish, String publishDate,
+			String author, String translator, String classify, String contentIntro, String authorIntro, double price,
+			String bindingType) {
+		this.isbn13 = isbn13;
+		this.isbn10 = isbn10;
+		this.barcode = barcode;
+		this.name = name;
+		this.publish = publish;
+		this.publishDate = publishDate;
+		this.author = author;
+		this.translator = translator;
+		this.classify = classify;
+		this.contentIntro = contentIntro;
+		this.authorIntro = authorIntro;
+		this.price = price;
+		this.bindingType = bindingType;
+	}
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
-    @Column(name = "id", unique = true, nullable = false)
-    public Integer getId() {
-        return this.id;
-    }
+	@Column(name = "id", unique = true, nullable = false)
+	public Integer getId() {
+		return this.id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    @Column(name = "ISBN13", nullable = false, length = 13)
-    public String getIsbn13() {
-        return this.isbn13;
-    }
+	@Column(name = "ISBN13", nullable = false, length = 13)
+	public String getIsbn13() {
+		return this.isbn13;
+	}
 
-    public void setIsbn13(String isbn13) {
-        this.isbn13 = isbn13;
-    }
+	public void setIsbn13(String isbn13) {
+		this.isbn13 = isbn13;
+	}
 
-    @Column(name = "ISBN10", nullable = false, length = 10)
-    public String getIsbn10() {
-        return this.isbn10;
-    }
+	@Column(name = "ISBN10", nullable = false, length = 10)
+	public String getIsbn10() {
+		return this.isbn10;
+	}
 
-    public void setIsbn10(String isbn10) {
-        this.isbn10 = isbn10;
-    }
+	public void setIsbn10(String isbn10) {
+		this.isbn10 = isbn10;
+	}
 
-    @Column(name = "barcode", nullable = false, length = 20)
-    public String getBarcode() {
-        return this.barcode;
-    }
+	@Column(name = "barcode", nullable = false, length = 20)
+	public String getBarcode() {
+		return this.barcode;
+	}
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode;
-    }
+	public void setBarcode(String barcode) {
+		this.barcode = barcode;
+	}
 
-    @Column(name = "name", nullable = false, length = 50)
-    public String getName() {
-        return this.name;
-    }
+	@Column(name = "name", nullable = false, length = 50)
+	public String getName() {
+		return this.name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Column(name = "publish", nullable = false, length = 50)
-    public String getPublish() {
-        return this.publish;
-    }
+	@Column(name = "publish", nullable = false, length = 50)
+	public String getPublish() {
+		return this.publish;
+	}
 
-    public void setPublish(String publish) {
-        this.publish = publish;
-    }
+	public void setPublish(String publish) {
+		this.publish = publish;
+	}
 
-    // @Temporal(TemporalType.DATE)
-    @Column(name = "publish_date", nullable = false, length = 10)
-    public String getPublishDate() {
-        return this.publishDate;
-    }
+	@Column(name = "publish_date", nullable = false, length = 50)
+	public String getPublishDate() {
+		return this.publishDate;
+	}
 
-    public void setPublishDate(String string) {
-        this.publishDate = string;
-    }
+	public void setPublishDate(String publishDate) {
+		this.publishDate = publishDate;
+	}
 
-    @Column(name = "author", nullable = false, length = 50)
-    public String getAuthor() {
-        return this.author;
-    }
+	@Column(name = "author", nullable = false, length = 50)
+	public String getAuthor() {
+		return this.author;
+	}
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    @Column(name = "translator", nullable = false, length = 50)
-    public String getTranslator() {
-        return this.translator;
-    }
+	@Column(name = "translator", nullable = false, length = 50)
+	public String getTranslator() {
+		return this.translator;
+	}
 
-    public void setTranslator(String translator) {
-        this.translator = translator;
-    }
+	public void setTranslator(String translator) {
+		this.translator = translator;
+	}
 
-    @Column(name = "classify", nullable = false, length = 10)
-    public String getClassify() {
-        return this.classify;
-    }
+	@Column(name = "classify", nullable = false, length = 65535)
+	public String getClassify() {
+		return this.classify;
+	}
 
-    public void setClassify(String classify) {
-        this.classify = classify;
-    }
+	public void setClassify(String classify) {
+		this.classify = classify;
+	}
 
-    @Column(name = "content_intro", nullable = false, length = 65535)
-    public String getContentIntro() {
-        return this.contentIntro;
-    }
+	@Column(name = "content_intro", nullable = false, length = 65535)
+	public String getContentIntro() {
+		return this.contentIntro;
+	}
 
-    public void setContentIntro(String contentIntro) {
-        this.contentIntro = contentIntro;
-    }
+	public void setContentIntro(String contentIntro) {
+		this.contentIntro = contentIntro;
+	}
 
-    @Column(name = "author_intro", nullable = false, length = 65535)
-    public String getAuthorIntro() {
-        return this.authorIntro;
-    }
+	@Column(name = "author_intro", nullable = false, length = 65535)
+	public String getAuthorIntro() {
+		return this.authorIntro;
+	}
 
-    public void setAuthorIntro(String authorIntro) {
-        this.authorIntro = authorIntro;
-    }
+	public void setAuthorIntro(String authorIntro) {
+		this.authorIntro = authorIntro;
+	}
 
-    @Column(name = "price", nullable = false, precision = 22, scale = 0)
-    public double getPrice() {
-        return this.price;
-    }
+	@Column(name = "price", nullable = false, precision = 22, scale = 0)
+	public double getPrice() {
+		return this.price;
+	}
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+	public void setPrice(double price) {
+		this.price = price;
+	}
 
-    @Column(name = "binding_type", nullable = false)
-    public String getBindingType() {
-        return this.bindingType;
-    }
+	@Column(name = "binding_type", nullable = false, length = 50)
+	public String getBindingType() {
+		return this.bindingType;
+	}
 
-    public void setBindingType(String bindingType) {
-        this.bindingType = bindingType;
-    }
+	public void setBindingType(String bindingType) {
+		this.bindingType = bindingType;
+	}
 
 }

@@ -35,6 +35,9 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Column(name = "id")
+    private int id;
+    
     @Id
     @Column(name = "username")
     private String username;
@@ -45,6 +48,9 @@ public class User implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "store_id")
+    private int storeId;
+    
     public String getUsername() {
         return username;
     }
@@ -57,7 +63,23 @@ public class User implements Serializable {
         return password;
     }
 
-    public void setPassword(String password) {
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(int storeId) {
+		this.storeId = storeId;
+	}
+
+	public void setPassword(String password) {
         this.password = password;
     }
 
